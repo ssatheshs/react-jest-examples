@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import Vote from './components/Vote';
+import EmployeeEmail from './components/EmployeeEmail';
 
 function App() {
   return (
     <div className="App">
-      <Vote totalGlobalLikes={8} />
+      <EmployeeEmail />
     </div>
   );
 }
