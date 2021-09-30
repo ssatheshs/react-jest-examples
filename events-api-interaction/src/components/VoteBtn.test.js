@@ -1,6 +1,8 @@
 import { screen, render, fireEvent } from '@testing-library/react'
 import user from '@testing-library/user-event'
 import Vote from './Vote'
+import VoteBtn from './VoteBtn'
+import thumbsUp from '../images/thumbs-up.svg'
 
 test('increase total likes by one using fireEvent', () => {
     render( <Vote totalGlobalLikes={ 8 } /> )
@@ -46,4 +48,22 @@ test('decrease total likes by one using user_event', () => {
 
     expect( screen.getByRole( 'button', { name: /thumbs down/i})).toHaveStyle('background: red')
     
+})
+
+
+test('invokes handleVote using test double', () => {
+    const mockHandleVote = jest.fn()
+
+    render(
+        <VoteBtn
+            handleVote={ mockHandleVote }
+            hasVoted={false}
+            imgSrc={ thumbsUp}
+            altText="vote like"
+        />
+    )
+
+    user.click(screen.getByRole('button',{ name: /vote like/i}))
+    expect(mockHandleVote).toHaveBeenCalled()
+    expect(mockHandleVote).toHaveBeenCalledTimes(1)
 })
