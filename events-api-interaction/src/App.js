@@ -1,14 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import Vote from './components/Vote';
-import EmployeeEmail from './components/EmployeeEmail';
+import './App.css'
+import DrinkSearch from './components/DrinkSearch'
 
 function App() {
   return (
     <div className="App">
-      <EmployeeEmail />
+      <DrinkSearch />
     </div>
   );
 }
 
-export default App;
+export default App
